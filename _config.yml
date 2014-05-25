@@ -10,3 +10,8 @@ twitter_username: ryanesc
 # Build settings
 markdown: kramdown
 permalink: pretty
+
+exclude: [
+  'gulpfile.js',
+  'package.json'
+]

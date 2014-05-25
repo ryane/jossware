@@ -1,1 +1,5 @@
 _site
+node_modules
+.sass-cache
+css/*
+npm-debug.log
