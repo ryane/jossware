@@ -29,7 +29,13 @@ gulp.task('clean', function() {
 
 gulp.task('watch', function() {
   gulp.watch('_scss/**/*.scss', ['styles']);
-  gulp.watch(['_layouts/*.html', '_posts/*', '_config.yml', 'css/*'],
+  gulp.watch(['_layouts/*.html',
+              '_includes/*.html',
+              '_posts/*',
+              '_config.yml',
+              'index.html',
+              'blog/*',
+              'css/*'],
              ['jekyll-rebuild']);
 });
 
