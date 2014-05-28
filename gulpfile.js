@@ -8,13 +8,14 @@ var gulp = require('gulp'),
 
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build',
-    stylesBuild: '<span style="color: grey">Running:</span> styles',
+    cssBuild: '<span style="color: grey">Running:</span> css',
+    jsBuild: '<span style="color: grey">Running:</span> javascript',
     jekyllBuildCompleted: '<span style="color: grey">Completed:</span> $ jekyll build'
 };
 
-gulp.task('styles', function() {
-  browserSync.notify(messages.stylesBuild);
-  return gulp.src('_scss/main.scss')
+gulp.task('css', function() {
+  browserSync.notify(messages.cssBuild);
+  return gulp.src('_scss/**/*.scss')
     .pipe(sass({ style: 'expanded' }))
     .pipe(gulp.dest('css'))
     .pipe(rename({ suffix: '.min' }))
@@ -22,21 +23,15 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('css'));
 });
 
-gulp.task('clean', function() {
-  return gulp.src([ 'css', '_site' ], { read: false })
-    .pipe(clean());
+gulp.task('js', function() {
+  browserSync.notify(messages.jsBuild);
+  return gulp.src('_js/**/*.js')
+    .pipe(gulp.dest('js'));
 });
 
-gulp.task('watch', function() {
-  gulp.watch('_scss/**/*.scss', ['styles']);
-  gulp.watch(['_layouts/*.html',
-              '_includes/*.html',
-              '_posts/*',
-              '_config.yml',
-              'index.html',
-              'blog/*',
-              'css/*'],
-             ['jekyll-rebuild']);
+gulp.task('clean', function() {
+  return gulp.src([ 'css', 'js', '_site' ], { read: false })
+    .pipe(clean());
 });
 
 gulp.task('jekyll-build', function (done) {
@@ -50,7 +45,21 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
   browserSync.reload();
 });
 
-gulp.task('browser-sync', ['styles', 'jekyll-build'], function() {
+gulp.task('watch', function() {
+  gulp.watch('_scss/**/*.scss', ['css']);
+  gulp.watch('_js/**/*.js', ['js']);
+  gulp.watch(['_layouts/*.html',
+              '_includes/*.html',
+              '_posts/*',
+              '_config.yml',
+              'index.html',
+              'blog/*',
+              'js/*',
+              'css/*'],
+             ['jekyll-rebuild']);
+});
+
+gulp.task('browser-sync', ['css', 'jekyll-build'], function() {
   browserSync.init(null, {
     server: {
       baseDir: '_site'

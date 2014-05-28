@@ -1,0 +1,30 @@
+<head>
+
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ site.description }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+  <!-- Title -->
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/jossware.css" | prepend: site.baseurl }}">
+  <!-- Foundation font icons core CSS -->
+  <link href="css/foundation-icons.css" rel="stylesheet">
+
+  <!-- Favicons -->
+  <link href="images/favicon/favicon.ico" rel="icon" type="image/x-icon">
+  <link href="images/favicon/apple-touch-icon-precomposed.png" rel="apple-touch-icon-precomposed">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Modernizr Scripts -->
+  <script src="js/vendor/modernizr-2.7.1.min.js"></script>
+</head>

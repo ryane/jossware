@@ -1,4 +1,0 @@
----
----
-
-siteName = "Jossware"
