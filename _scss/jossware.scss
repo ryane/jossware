@@ -33,7 +33,7 @@
       font-size: 16px;
       font-weight: bold;
       color: #34495e; }
-    
+
 .about-section {
   .lead {
     @include home-copy;
@@ -44,6 +44,11 @@
   .lead {
     @include home-copy;
   }
+}
+
+.error-section {
+  text-align: center;
+  padding: 120px 0 500px;
 }
 
 /* Max-width 40.000em = 640px */
