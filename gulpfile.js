@@ -68,4 +68,12 @@ gulp.task('browser-sync', ['css', 'jekyll-build'], function() {
   });
 });
 
+gulp.task('deploy', function (done) {
+  return cp.spawn('rsync',
+                  ['-avz', '--delete', '_site/',
+                   'jossware.com:/home/ryane/jossware.com'],
+                  { stdio: 'inherit' })
+    .on('close', done);
+});
+
 gulp.task('default', [ 'clean', 'browser-sync', 'watch' ]);
