@@ -44,6 +44,25 @@
   .lead {
     @include home-copy;
   }
+
+  .services {
+    margin-top: 40px;
+
+    .col-services {
+      h4 {
+        font-weight: bold;
+      }
+
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        width: 100px;
+        height: auto;
+      }
+    }
+  }
 }
 
 .error-section {
@@ -55,12 +74,12 @@
 @media only screen and (max-width: 40em) {
   .benefits-section {
     padding-bottom: 50px; }
-    .benefits-section .col-counter {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      width: 70%;
-      margin-bottom: 50px; } }
+  .benefits-section .col-counter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    margin-bottom: 50px; } }
 
 /* Max-width 35.500em = 568px */
 @media only screen and (max-width: 35.5em) {
