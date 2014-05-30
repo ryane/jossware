@@ -1,10 +1,16 @@
 // When the window has finished loading create our google map below
 google.maps.event.addDomListener(window, 'load', init);
 
-// The latitude and longitude to center the map (always required)
-var myLatlng = new google.maps.LatLng(40.6927206,-73.981238); // Brooklyn
-
 function init() {
+  // Get the HTML DOM element that will contain your map
+  // Using a div with id="map" seen below in the <body>
+  var mapElement = document.getElementById('map');
+  if (!mapElement)
+    return;
+
+  // The latitude and longitude to center the map (always required)
+  var myLatlng = new google.maps.LatLng(40.6927206,-73.981238); // Brooklyn
+
 
     // Basic options for a simple Google Map
     // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
@@ -54,10 +60,6 @@ function init() {
             }
         ]
     };
-
-// Get the HTML DOM element that will contain your map
-// Using a div with id="map" seen below in the <body>
-var mapElement = document.getElementById('map');
 
 // Create the Google Map using out element and options defined above
 var map = new google.maps.Map(mapElement, mapOptions);

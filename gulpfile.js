@@ -66,6 +66,7 @@ gulp.task('watch', function() {
               '_posts/*',
               '_config.yml',
               'index.html',
+              'contact/*',
               'blog/*'],
              ['jekyll-rebuild']);
 });

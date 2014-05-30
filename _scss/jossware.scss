@@ -70,6 +70,24 @@
   padding: 120px 0 500px;
 }
 
+#contact-thanks {
+  padding: 120px 0 500px;
+
+  .lead {
+    text-align: center;
+  }
+}
+
+.contact-form {
+  .name-field {
+    input[type=text] {
+      width: 49%;
+      padding-right: 5px;
+      display: inline-block;
+    }
+  }
+}
+
 /* Max-width 40.000em = 640px */
 @media only screen and (max-width: 40em) {
   .benefits-section {

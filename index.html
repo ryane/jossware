@@ -184,7 +184,7 @@ layout: cosmogony
     <!-- Contact Form -->
     <div class="medium-6 columns">
 
-      <form data-abide action="http://forms.brace.io/ryan@jossware.com" method="POST">
+      <form data-abide id="form1" name="form1" class="wufoo topLabel page contact-form" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data" method="post" novalidate action="https://jossware.wufoo.com/forms/z20l99w1nr093z/#public">
 
         <fieldset class="radius">
 
@@ -194,8 +194,9 @@ layout: cosmogony
             <div class="medium-12 columns">
 
               <div class="name-field">
-                <label>Name
-                  <input class="radius" id="myName" type="text" placeholder="First or full name">
+                <label>Name<br/>
+                  <input id="Field13" name="Field13" type="text" class="field text fn radius small-6" value="" size="8" tabindex="1" required placeholder="First name" />
+                  <input id="Field14" name="Field14" type="text" class="field text ln radius small-6" value="" size="14" tabindex="2" required placeholder="Last name" />
                 </label>
                 <small class="error">Name is required and must be a string.</small>
               </div> <!-- /.name-field -->
@@ -211,7 +212,7 @@ layout: cosmogony
 
               <div class="email-field">
                 <label>Email
-                  <input class="radius" id="myEmail" type="email" placeholder="name@example.com">
+                  <input id="Field10" name="Field10" type="email" spellcheck="false" class="field text medium radius" value="" maxlength="255" tabindex="2" required placeholder="name@example.com" />
                 </label>
                 <small class="error">An email address is required.</small>
               </div> <!-- /.email-field -->
@@ -227,7 +228,7 @@ layout: cosmogony
             <div class="medium-12 columns">
 
               <label>Message</label>
-              <textarea class="radius" id="myMessage" name="message" placeholder="Leave your comments here."></textarea>
+              <textarea id="Field11" name="Field11" class="field textarea medium radius" spellcheck="true" rows="10" cols="50" tabindex="3" onkeyup="" placeholder="Leave your comments here."></textarea>
 
             </div> <!-- /.medium-12 .columns -->
 
@@ -247,6 +248,7 @@ layout: cosmogony
 
         </fieldset>
 
+        <input type="hidden" id="idstamp" name="idstamp" value="UyjNqKhssTLzagMFw4y1wKf/Y63pazMDD6ECIjiR7qY=" />
       </form>
 
     </div> <!-- /.medium-6 .columns -->
