@@ -79,7 +79,7 @@ gulp.task('browser-sync', ['css', 'js', 'jekyll-build'], function() {
   });
 });
 
-gulp.task('deploy', function (done) {
+gulp.task('deploy', ['jekyll-build'], function (done) {
   return cp.spawn('rsync',
                   ['-avz', '--delete', '_site/',
                    'jossware.com:/home/ryane/jossware.com'],
