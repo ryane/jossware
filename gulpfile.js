@@ -10,7 +10,8 @@ var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build',
     cssBuild: '<span style="color: grey">Running:</span> css',
     jsBuild: '<span style="color: grey">Running:</span> javascript',
-    jekyllBuildCompleted: '<span style="color: grey">Completed:</span> $ jekyll build'
+    jekyllBuildCompleted: '<span style="color: grey">Completed:</span> $ jekyll build',
+    browserReload: '<span style="color: grey">Running:</span> browser-reload'
 };
 
 gulp.task('css', function() {
@@ -18,15 +19,27 @@ gulp.task('css', function() {
   return gulp.src('_scss/**/*.scss')
     .pipe(sass({ style: 'expanded' }))
     .pipe(gulp.dest('css'))
+    .pipe(gulp.dest('_site/css'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(minifycss())
     .pipe(gulp.dest('css'));
 });
 
+gulp.task('css-and-reload', ['css'], function() {
+  browserSync.notify(messages.browserReload);
+  browserSync.reload();
+});
+
 gulp.task('js', function() {
   browserSync.notify(messages.jsBuild);
   return gulp.src('_js/**/*.js')
-    .pipe(gulp.dest('js'));
+    .pipe(gulp.dest('js'))
+    .pipe(gulp.dest('_site/js'))
+});
+
+gulp.task('js-and-reload', ['js'], function() {
+  browserSync.notify(messages.browserReload);
+  browserSync.reload();
 });
 
 gulp.task('clean', function() {
@@ -46,20 +59,18 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('_scss/**/*.scss', ['css']);
-  gulp.watch('_js/**/*.js', ['js']);
+  gulp.watch('_scss/**/*.scss', ['css-and-reload']);
+  gulp.watch('_js/**/*.js', ['js-and-reload']);
   gulp.watch(['_layouts/*.html',
               '_includes/*.html',
               '_posts/*',
               '_config.yml',
               'index.html',
-              'blog/*',
-              'js/*',
-              'css/*'],
+              'blog/*'],
              ['jekyll-rebuild']);
 });
 
-gulp.task('browser-sync', ['css', 'jekyll-build'], function() {
+gulp.task('browser-sync', ['css', 'js', 'jekyll-build'], function() {
   browserSync.init(null, {
     server: {
       baseDir: '_site'
