@@ -12,6 +12,7 @@ markdown: kramdown
 permalink: pretty
 
 exclude: [
+  'README.md',
   'gulpfile.js',
   'package.json',
   'node_modules'
