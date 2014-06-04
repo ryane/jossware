@@ -65,6 +65,18 @@
   }
 }
 
+.work-section {
+  background: #ebecee;
+
+  .col-work {
+
+    a {
+      max-width: inherit;
+    }
+
+  }
+}
+
 .error-section {
   text-align: center;
   padding: 120px 0 500px;
