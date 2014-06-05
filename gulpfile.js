@@ -88,4 +88,4 @@ gulp.task('deploy', ['jekyll-build'], function (done) {
     .on('close', done);
 });
 
-gulp.task('default', [ 'clean', 'browser-sync', 'watch' ]);
+gulp.task('default', [ 'browser-sync', 'watch' ]);

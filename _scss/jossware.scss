@@ -100,6 +100,18 @@
   }
 }
 
+.reveal-modal {
+  p.portfolio-desc {
+    text-align: justified;
+  }
+
+  p {
+    a {
+      color: #00b6ad;
+    }
+  }
+}
+
 /* Max-width 40.000em = 640px */
 @media only screen and (max-width: 40em) {
   .benefits-section {
